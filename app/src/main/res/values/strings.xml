@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">SeoulPrice</string>
+
+    <string name="api_url">http://openAPI.seoul.go.kr:8088/</string>
+    <string name="api_key">555941534c6c6b773131306e41776f61</string>
 </resources>
