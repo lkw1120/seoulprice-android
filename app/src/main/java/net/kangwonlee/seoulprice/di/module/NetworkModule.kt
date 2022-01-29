@@ -2,7 +2,7 @@ package net.kangwonlee.seoulprice.di.module
 
 import dagger.Module
 import dagger.Provides
-import net.kangwonlee.seoulprice.constant.ServerInfo
+import net.kangwonlee.seoulprice.common.ServerInfo
 import net.kangwonlee.seoulprice.datasource.remote.ApiService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
+import net.kangwonlee.seoulprice.common.SingleLiveEvent
 import net.kangwonlee.seoulprice.datasource.entity.Row
 import net.kangwonlee.seoulprice.repository.ApiRepository
 import timber.log.Timber
@@ -20,18 +21,21 @@ class MainViewModel @Inject constructor(
     private val apiRepository: ApiRepository
 ) : ViewModel() {
 
-    val progressLiveData: MutableLiveData<Long> =
-        MutableLiveData(0)
+    val progressLiveData: SingleLiveEvent<Long> =
+        SingleLiveEvent()
 
-    val dataListLiveData: MutableLiveData<List<Row>> =
-        MutableLiveData()
+    val dataListLiveData: SingleLiveEvent<List<Row>> =
+        SingleLiveEvent()
 
     private val compositeDisposable = CompositeDisposable()
 
     init {
-
+        progressLiveData.postValue(0)
     }
 
+    fun loadingFinish() {
+        progressLiveData.postValue(100L)
+    }
 
     fun getDataList(date: LocalDate) {
         Timber.d("오늘 날짜 : $date")
@@ -42,7 +46,7 @@ class MainViewModel @Inject constructor(
         getDataListRanged(limitDate.toString())
     }
 
-    fun getDataListRanged(limitDate: String, init: Int = 1) {
+    private fun getDataListRanged(limitDate: String, init: Int = 1) {
         var start = init
         Timber.d("범위 : $start ~ ${start+999}")
         apiRepository.getDataListRanged(start,start+999)
