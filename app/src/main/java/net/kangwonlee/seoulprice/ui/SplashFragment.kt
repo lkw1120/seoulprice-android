@@ -43,7 +43,7 @@ class SplashFragment : DaggerFragment(R.layout.fragment_splash) {
         Single.just(0)
             .subscribeOn(Schedulers.io())
             .observeOn(Schedulers.io())
-            .delay(1300, TimeUnit.MILLISECONDS)
+            .delay(1000, TimeUnit.MILLISECONDS)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                    viewModel.goMain()

@@ -1,6 +1,8 @@
 package net.kangwonlee.seoulprice
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.navigation.findNavController
 import dagger.android.support.DaggerAppCompatActivity
@@ -24,6 +26,9 @@ class MainActivity : DaggerAppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Timber.plant(Timber.DebugTree())
+
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        window.statusBarColor = Color.WHITE
     }
 
     override fun onBackPressed() {

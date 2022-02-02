@@ -1,8 +1,26 @@
 <resources>
-    <string name="app_name">SeoulPrice</string>
+    <string name="app_name">서울물가</string>
 
     <string name="api_url">http://openAPI.seoul.go.kr:8088/</string>
     <string name="api_key">555941534c6c6b773131306e41776f61</string>
 
     <string name="loading_data">서울물가 데이터 수신중…(%1$d%%)</string>
+
+
+    <string name="main_menu_1">우리동네 물가</string>
+    <string name="main_menu_2">최근 물가 동향</string>
+    <string name="main_menu_3">지역별 평균 물가</string>
+    <string name="main_menu_4">관심 시장 마트</string>
+
+
+
+
+
+
+
+    <string name="oss_license">오픈소스 라이센스</string>
+
+    <!-- content description -->
+    <string name="descriptor_logo">로고 이미지</string>
+
 </resources>
